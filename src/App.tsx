@@ -1,23 +1,9 @@
 /* tslint:disable:max-classes-per-file */
 // TODO(zhyty): reenable max-classes-per-file once we're past playing around.
 import * as React from 'react';
-// import * as PropTypes from 'prop-types';
 
+import { ILesson } from './Models';
 import * as Snippet from './Snippet';
-
-// TODO(zhyty): these are just stubs. Will be need to be updated when Lessons
-// are implemented.
-interface IExercise {
-  title: string;
-  // we'll need to fill this out.
-  content: Snippet.ISnippetProps;
-}
-
-interface ILesson {
-  title: string;
-  exercises: IExercise[];
-  // we'll need to fill this out too.
-}
 
 function LessonFrame(lesson: ILesson) {
   return (

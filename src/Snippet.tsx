@@ -8,22 +8,13 @@ import 'prismjs/themes/prism-okaidia.css';
 
 import './snippet.css';
 
-import * as Block from './Block'
+import * as Block from './Block';
+import { ISnippet } from './Models';
 
 Prism.highlightAll();
 
-interface IBlock {
-  code: string;
-  good: boolean;
-}
-
-interface ISnippetProps {
-  blocks: IBlock[];
-  lang: string;
-}
-
-class Snippet extends React.Component<ISnippetProps, {}> {
-  constructor(props: ISnippetProps) {
+class Snippet extends React.Component<ISnippet, {}> {
+  constructor(props: ISnippet) {
     super(props);
     this.state = {};
   }
@@ -41,4 +32,4 @@ class Snippet extends React.Component<ISnippetProps, {}> {
   }
 }
 
-export {Snippet, ISnippetProps};
+export {Snippet, ISnippet};
