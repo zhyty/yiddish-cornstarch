@@ -1,6 +1,7 @@
 /* tslint:disable:max-classes-per-file */
 // TODO(zhyty): reenable max-classes-per-file once we're past playing around.
 import * as React from 'react';
+// import * as PropTypes from 'prop-types';
 
 import * as Snippet from './Snippet';
 
@@ -45,17 +46,15 @@ function LessonInteractiveArea(lesson: ILesson) {
   );
 }
 
-class App extends React.Component {
-  public render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Yiddish Cornstarch</h1>
-        </header>
-        <LessonFrame {...SAMPLE_LESSON} />
-      </div>
-    );
-  }
+export const App = () => {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <h1 className="App-title">Yiddish Cornstarch</h1>
+      </header>
+      <LessonFrame {...SAMPLE_LESSON} />
+    </div>
+  );
 }
 
 const SAMPLE_LESSON = {
