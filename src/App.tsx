@@ -3,7 +3,7 @@
 import * as React from 'react';
 
 import { ILesson, SAMPLE_LESSON } from './Models';
-import * as Snippet from './Snippet';
+import { Snippet } from './Snippet';
 
 function LessonFrame(lesson: ILesson) {
   return (
@@ -20,7 +20,7 @@ function LessonInteractiveArea(lesson: ILesson) {
   const exercisesListItems = [];
   for (const exercise of lesson.exercises) {
     exercisesListItems.push(
-      <Snippet.Snippet key={exercise.title} {...exercise.content} />
+      <Snippet key={exercise.title} {...exercise.content} />
     );
   }
 
@@ -32,7 +32,7 @@ function LessonInteractiveArea(lesson: ILesson) {
   );
 }
 
-export const App = () => {
+const App = () => {
   return (
     <div className="App">
       <header className="App-header">
@@ -42,5 +42,4 @@ export const App = () => {
     </div>
   );
 }
-
 export default App;
