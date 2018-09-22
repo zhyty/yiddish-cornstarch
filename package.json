@@ -4,6 +4,7 @@
   "homepage": "http://iburinoc.github.io/yiddish-cornstarch",
   "private": true,
   "dependencies": {
+    "@types/react-redux": "^6.0.9",
     "prismjs": "^1.15.0",
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
