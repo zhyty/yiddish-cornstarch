@@ -1,6 +1,12 @@
-import HIGHLIGHT_LINE from '../actions';
+import { HIGHLIGHT_LINE, IAction } from '../actions';
 
-function mainReducer(state, action) {
+import { ILesson } from '../Models';
+
+export interface IState {
+  currentLesson: ILesson;
+}
+
+export function rootReducer(state: IState, action: IAction) {
   switch (action.type) {
     case HIGHLIGHT_LINE:
     default:

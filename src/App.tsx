@@ -1,45 +1,42 @@
 /* tslint:disable:max-classes-per-file */
 // TODO(zhyty): reenable max-classes-per-file once we're past playing around.
 import * as React from 'react';
+import { connect } from 'react-redux';
 
-import { ILesson, SAMPLE_LESSON } from './Models';
+import { ILesson } from './Models';
+import { IState } from './reducers/';
 import { Snippet } from './Snippet';
 
-function LessonFrame(lesson: ILesson) {
-  return (
-    <div className="lesson-frame">
-      <h1 className="lesson-frame-title">
-        Lesson: {lesson.title}
-      </h1>
-      <LessonInteractiveArea {...lesson} />
-    </div>
-  );
-}
+const LessonInteractiveArea = (lesson: ILesson) => (
+  <div className="lesson-interactive">
+    Exercises:
+    <ul>
+      {lesson.exercises.map((exercise) =>
+        <Snippet key={exercise.title} {...exercise.content} />
+      )}
+    </ul>
+  </div>
+);
 
-function LessonInteractiveArea(lesson: ILesson) {
-  const exercisesListItems = [];
-  for (const exercise of lesson.exercises) {
-    exercisesListItems.push(
-      <Snippet key={exercise.title} {...exercise.content} />
-    );
-  }
+const LessonFrame = (lesson: ILesson) => (
+  <div className="lesson-frame">
+    <h1 className="lesson-frame-title">
+      Lesson: {lesson.title}
+    </h1>
+    <LessonInteractiveArea {...lesson} />
+  </div>
+);
 
-  return (
-    <div className="lesson-interactive">
-      Exercises:
-      <ul>{exercisesListItems}</ul>
-    </div>
-  );
-}
+const mapStateToLessonFrameProps = (state: IState) => state.currentLesson;
+const VisibleLessonFrame = connect(mapStateToLessonFrameProps)(LessonFrame);
 
-const App = () => {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <h1 className="App-title">Yiddish Cornstarch</h1>
-      </header>
-      <LessonFrame {...SAMPLE_LESSON} />
-    </div>
-  );
-}
+const App = () => (
+  <div className="App">
+    <header className="App-header">
+      <h1 className="App-title">Yiddish Cornstarch</h1>
+    </header>
+    <VisibleLessonFrame />
+  </div>
+);
+
 export default App;

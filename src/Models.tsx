@@ -2,6 +2,7 @@
 export interface IBlock {
   code: string;
   good: boolean;
+  highlighted: boolean;
 }
 
 export interface ISnippet {
@@ -25,8 +26,8 @@ export const SAMPLE_LESSON: ILesson = {
       title: 'Find the meaning of Schmubleck.',
       content: {
         blocks: [
-          {code: 'def main():\n', good: false},
-          {code: '    print("hello")\n    print("world")\n', good: true},
+          {code: 'def main():\n', good: false, highlighted: false},
+          {code: '    print("hello")\n    print("world")\n', good: true, highlighted: false},
         ],
         lang: 'python',
       },
@@ -35,9 +36,9 @@ export const SAMPLE_LESSON: ILesson = {
       title: 'Highlight the bad code in this sample.',
       content: {
         blocks: [
-          {code: 'int main() {\n', good: true},
-          {code: '    std::cout << "hi\\n";\n', good: false},
-          {code: '}', good: true},
+          {code: 'int main() {\n', good: true, highlighted: false},
+          {code: '    std::cout << "hi\\n";\n', good: false, highlighted: false},
+          {code: '}', good: true, highlighted: false},
         ],
         lang: 'clike',
       },
