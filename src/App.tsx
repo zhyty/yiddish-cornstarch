@@ -12,7 +12,7 @@ const LessonInteractiveArea = (lesson: ILesson) => (
     Exercises:
     <ul>
       {lesson.exercises.map((exercise) =>
-        <Snippet key={exercise.title} {...exercise.content} />
+        <Snippet key={exercise.title} {...exercise} />
       )}
     </ul>
   </div>

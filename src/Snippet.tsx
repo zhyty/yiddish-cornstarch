@@ -9,22 +9,22 @@ import './snippet.css';
 
 import { highlightLine } from './actions/';
 import { Block } from './Block';
-import { ISnippet } from './Models';
+import { IExercise } from './Models';
 
 Prism.highlightAll();
 
-const blockOnClick = (lineNo: number) => (
-  () => highlightLine(lineNo)
+const blockOnClick = (lineNo: number, exerciseId: number) => (
+  () => highlightLine(lineNo, exerciseId)
 );
 
-export const Snippet = (props: ISnippet) => (
+export const Snippet = (props: IExercise) => (
   <pre className={"language-" + props.lang}>
     {props.blocks.map((block, ii) =>
       <Block
         key={ii}
         {...props.blocks[ii]}
         language={props.lang}
-        onClick={blockOnClick(ii)}
+        onClick={blockOnClick(ii, props.id)}
       />
     )}
   </pre>

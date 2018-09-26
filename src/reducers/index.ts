@@ -9,6 +9,7 @@ export interface IState {
 export function rootReducer(state: IState, action: IAction) {
   switch (action.type) {
     case HIGHLIGHT_LINE:
+      return
     default:
       return state;
   }
